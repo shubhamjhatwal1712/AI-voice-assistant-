@@ -1,4 +1,5 @@
-#libraries
+**#libraries**
+
 import os
 import time
 import pyautogui
@@ -27,6 +28,7 @@ voices = engine.getProperty('voices')
 engine.setProperty('voices', voices[0].id)
 
 # TEXT TO SPEECH
+
 def speak(audio):
     engine.say(audio)
     print(audio)
@@ -40,6 +42,8 @@ class MainThread(QThread):
         self.TaskExecution()
 
     # TO CONVERT VOICE INTO TEXT
+
+    
     def takecommand(self):
         r = sr.Recognizer()
         with sr.Microphone() as source:
@@ -57,7 +61,8 @@ class MainThread(QThread):
                 return "none"
             return query
 
-    # TO WISH
+    #TO WISH
+    
     def wish(self):
         hour = int(datetime.datetime.now().hour)
         if hour >= 0 and hour <= 12:
@@ -70,7 +75,8 @@ class MainThread(QThread):
         speak(tt)
         speak("I’m Jarvis sir, your intelligent companion. Please let me know what I can do for you.")
 
-    # TO SEND EMAIL
+    #SEND EMAIL
+    
     def sendEmail(self, to, content):
         server = smtplib.SMTP('smtp.gmail.com', 587)
         server.ehlo()
